@@ -3,10 +3,7 @@ package com.chainsys.oops1;
 import java.util.Scanner;
 
 public class BankMain {
-	/*String userName;
-	String accountNo;
-	String bankLocation;
-	String accountType;*/
+	
 	
 	double amount;
 public void getUserDetails(BankInformation input) {
@@ -15,10 +12,16 @@ public void getUserDetails(BankInformation input) {
 	Scanner sc=new Scanner(System.in);
 	System.out.println("Enter a UserName :");
 	input.setUserName(sc.next());
-	if(!validate.numberchecker(input.userName)) {
+	/*if(!validate.numberchecker(input.userName)) {
 		return;
+	}*/
+	while (!validate.numberchecker(input.userName)) {
+        input.userName = sc.next();
+    }
+	while(!validate.validateString(input.userName)) {
+		input.userName=sc.next();
 	}
-	
+   // input.setUserName(input.userName);
 	
 	
 //	if(!validate.isSpecialChar(userName)) {
@@ -27,6 +30,9 @@ public void getUserDetails(BankInformation input) {
 	
 	System.out.println("Enter a Account Number:");
 	input.setAccountNo( sc.next());
+	while(!validate.validateString1(input.accountNo)) {
+		input.accountNo=sc.next();
+	}
 //	if(validate.isSpecialChar(accountNo)) {
 //		return;
 //	}
@@ -45,10 +51,13 @@ public void getUserDetails(BankInformation input) {
 	
 	System.out.println("Enter your Amount:");
 	input.setAmount(sc.nextInt());
-	if(!validate.inputchecker1(amount)) {
+	while (!validate.inputchecker1(input.amount)) {
+        input.amount = sc.nextDouble();
+    }
+	/*if(!validate.inputchecker1(amount)) {
 		return;
-	}
-	
+	}*/
+	sc.close();
 }
 public  void printUserDetails(BankInformation input) {
 	System.out.println(input);

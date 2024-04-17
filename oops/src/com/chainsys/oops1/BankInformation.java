@@ -5,7 +5,6 @@ public class BankInformation {
 	String accountNo;
 	String bankLocation;
 	String accountType;
-
 	double amount;
 	public double getAmount() {
 		return amount;
@@ -39,12 +38,13 @@ public class BankInformation {
 	}
 	
 	public BankInformation(String userName, String accountNo, String bankLocation, String accountType,
-			int aadharNumber) {
+			int aadharNumber,double amount) {
 		super();
 		this.userName = userName;
 		this.accountNo = accountNo;
 		this.bankLocation = bankLocation;
 		this.accountType = accountType;
+		this.amount=amount;
 		
 	}
 	public BankInformation() {
@@ -53,7 +53,7 @@ public class BankInformation {
 	@Override
 	public String toString() {
 		return "BankInformation [userName=" + userName + ", accountNo=" + accountNo + ", bankLocation=" + bankLocation
-				+ ", accountType=" + accountType + "]";
+				+ ", accountType=" + accountType + ", amount=" + amount+"]";
 	}
 
 
